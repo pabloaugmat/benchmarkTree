@@ -13,6 +13,7 @@ void benchmark_avl()
     clock_t start, end;
 
     // Inserção de elementos
+    reset_rotacoes_avl();
     start = clock();
     for (int i = 0; i < NUM_ELEMENTS; i++)
     {
@@ -20,8 +21,10 @@ void benchmark_avl()
     }
     end = clock();
     printf("AVL inserção: %f segundos\n", (double)(end - start) / CLOCKS_PER_SEC);
+    printf("AVL rotações na inserção: %d\n", get_rotacoes_avl());
 
     // Remoção de elementos
+    reset_rotacoes_avl(); // Reinicia a contagem de rotações para remoção
     start = clock();
     for (int i = 0; i < NUM_ELEMENTS; i++)
     {
@@ -29,6 +32,7 @@ void benchmark_avl()
     }
     end = clock();
     printf("AVL remoção: %f segundos\n", (double)(end - start) / CLOCKS_PER_SEC);
+    printf("AVL rotações na remoção: %d\n", get_rotacoes_avl());
 
     // Busca de elementos aleatórios
     start = clock();
@@ -47,6 +51,7 @@ void benchmark_rb()
     clock_t start, end;
 
     // Inserção de elementos
+    reset_rotacoes_rb();
     start = clock();
     for (int i = 0; i < NUM_ELEMENTS; i++)
     {
@@ -54,8 +59,10 @@ void benchmark_rb()
     }
     end = clock();
     printf("RB inserção: %f segundos\n", (double)(end - start) / CLOCKS_PER_SEC);
+    printf("RB rotações na inserção: %d\n", get_rotacoes_rb());
 
     // Remoção de elementos
+    reset_rotacoes_rb(); // Reinicia a contagem de rotações para remoção
     start = clock();
     for (int i = 0; i < NUM_ELEMENTS; i++)
     {
@@ -63,6 +70,7 @@ void benchmark_rb()
     }
     end = clock();
     printf("RB remoção: %f segundos\n", (double)(end - start) / CLOCKS_PER_SEC);
+    printf("RB rotações na remoção: %d\n", get_rotacoes_rb());
 
     // Busca de elementos aleatórios
     start = clock();
